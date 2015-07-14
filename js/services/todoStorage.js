@@ -14,7 +14,12 @@ angular.module('todomvc')
 		// Detect if an API backend is present. If so, return the API module, else
 		// hand off the localStorage adapter
 		return $http.get('/api')
-			.then(function () {
+			.then(function (req, res) {
+				console.log('/////////////////////////');
+				console.log('response:', res);
+				console.log('~~~~~~~~~~~~~~~~');
+				console.log(req);
+				console.log('/////////////////////////');
 				return $injector.get('api');
 			}, function () {
 				return $injector.get('localStorage');

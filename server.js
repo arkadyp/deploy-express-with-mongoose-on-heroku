@@ -1,4 +1,3 @@
-
 // https://devcenter.heroku.com/articles/mongolab
 // http://todomvc.com/examples/angularjs/#/
 var express  = require('express'),
@@ -23,8 +22,14 @@ var express  = require('express'),
  * MONGOLAB_URI=mongodb://example:example@ds053312.mongolab.com:53312/todolist
  * 'mongodb://example:example@ds053312.mongolab.com:53312/todolist'
  */
-mongoose.connect(process.env.MONGOLAB_URI, function (error) {
-    if (error) console.error(error);
+
+
+console.log('attempt to connect to: ', process.env.MONGOLAB_TODOLIST_URI);
+mongoose.connect(process.env.MONGOLAB_TODOLIST_URI, function (error) {
+    if (error) {
+      console.log('fuck.....');
+      console.error(error)
+    }
     else console.log('mongo connected');
 });
 
